@@ -60,6 +60,9 @@ namespace EstoqueConsole
 
             db.PRODUTO.Add(produto);
             db.SaveChanges();
+
+            Estoque estoque = new Estoque();
+            estoque.cadastrarEstoque(produto.idPRODUTO);
         }
 
         public void alterarProduto(int codigo, string nome, int codBarras, int grupo, string unidade)
@@ -81,6 +84,9 @@ namespace EstoqueConsole
             var db = new estoqueEntities();
             var produto = db.PRODUTO.Where(x => x.idPRODUTO == codigo).Select(x => x).First();
             db.PRODUTO.Remove(produto);
+
+            Estoque estoque = new Estoque();
+            estoque.removerEstoque(produto.idPRODUTO);
 
             db.SaveChanges();
         }
