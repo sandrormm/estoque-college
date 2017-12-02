@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EstoqueConsole
+﻿namespace CSA_SISTEMAS_DAO.DAO
 {
-    class Logradouro
+    public class LogradouroDAO
     {
         public int cadastrarLogradouro(int idBairro, string rua)
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
 
             var logradouro = db.LOGRADOURO.Create();
 
@@ -24,4 +18,3 @@ namespace EstoqueConsole
         }
     }
 }
-

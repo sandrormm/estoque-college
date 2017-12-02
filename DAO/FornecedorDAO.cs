@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EstoqueConsole
+namespace CSA_SISTEMAS_DAO.DAO
 {
-    class Fornecedor
+    public class FornecedorDAO
     {
         public int id { get; set; }
         public int idTelefone { get; set; }
@@ -17,32 +14,15 @@ namespace EstoqueConsole
         public int inscricaoEstadual { get; set; }
         public string email { get; set; }
 
-        public void cadastrarFornecedor(
-            int telefoneFixo,
-            int celular,
-            string razaoSocial,
-            string fantasia,
-            int cnpj,
-            int inscricaoEstadual,
-            string email,
-            string logradouro,
-            int cep,
-            int numero,
-            string complemento,
-            string referencia,
-            string pais,
-            string estado,
-            string cidade,
-            string bairro,
-            string rua
-        )
+        public void cadastrarFornecedor(int telefoneFixo, int celular, string razaoSocial, string fantasia, int cnpj, int inscricaoEstadual, string email, string logradouro,
+            int cep, int numero, string complemento, string referencia, string pais, string estado, string cidade, string bairro, string rua)
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
 
-            Telefone telefoneObj = new Telefone();
+            var telefoneObj = new TelefoneDAO();
             int telefone = telefoneObj.cadastrarTelefone(telefoneFixo, celular);
 
-            Endereco enderecoObj = new Endereco();
+            var enderecoObj = new EnderecoDAO();
             int endereco = enderecoObj.cadastrarEndereco(logradouro, cep, numero, complemento,
                 referencia, pais, estado, cidade, bairro, rua);
 
@@ -80,12 +60,12 @@ namespace EstoqueConsole
             string rua
         )
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
 
-            Telefone telefoneObj = new Telefone();
+            var telefoneObj = new TelefoneDAO();
             int telefone = telefoneObj.cadastrarTelefone(telefoneFixo, celular);
 
-            Endereco enderecoObj = new Endereco();
+            var enderecoObj = new EnderecoDAO();
             int endereco = enderecoObj.cadastrarEndereco(logradouro, cep, numero, complemento,
                 referencia, pais, estado, cidade, bairro, rua);
 
@@ -104,7 +84,7 @@ namespace EstoqueConsole
 
         public void removerFornecedor(int id)
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
             var fornecedor = db.FORNECEDOR.Where(x => x.idFORNECEDOR == id).Select(x => x).First();
             db.FORNECEDOR.Remove(fornecedor);
 
@@ -113,7 +93,7 @@ namespace EstoqueConsole
 
         public List<Fornecedor> listarFornecedores()
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
 
             List<Fornecedor> fornecedores = new List<Fornecedor>();
 
@@ -134,7 +114,7 @@ namespace EstoqueConsole
 
         public Fornecedor listarFornecedor(string fantasia)
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
 
             var fornecedor = db.FORNECEDOR.Where(x => x.NOME_FANTASIA == fantasia)
             .Select(x => new Fornecedor
@@ -153,4 +133,3 @@ namespace EstoqueConsole
         }
     }
 }
-

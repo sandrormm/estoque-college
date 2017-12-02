@@ -1,12 +1,14 @@
+﻿using CSA_SISTEMAS.CLASSES;
+using CSA_SISTEMAS_DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstoqueConsole
+namespace CSA_SISTEMAS_DAO.DAO
 {
-    class Endereco
+    public class EnderecoDAO
     {
         public int idLogradouro { get; set; }
         public string cep { get; set; }
@@ -14,11 +16,8 @@ namespace EstoqueConsole
         public string complemento { get; set; }
         public string referencia { get; set; }
 
-        public int cadastrarEndereco(
-            string logradouro, 
-            int cep, 
-            int numero, 
-            string complemento, 
+        public int cadastrarEndereco(string logradouro, int cep, int numero,
+            string complemento,
             string referencia,
             string pais = "",
             string estado = "",
@@ -27,7 +26,7 @@ namespace EstoqueConsole
             string rua = ""
         )
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
             var endereco = db.ENDERECO.Create();
 
             // verifica se cep ja esta cadastrado
@@ -37,21 +36,22 @@ namespace EstoqueConsole
             if (logCadastrado > 0)
             {
                 endereco.LOGRADOURO_idLOGRADOURO = logCadastrado;
-            } else
+            }
+            else
             {
-                Pais paisObj = new Pais();
+                var paisObj = new PaisDAO();
                 int idPaisCadastrado = paisObj.cadastrarPais(pais);
 
-                Estado estadoObj = new Estado();
+                var estadoObj = new EstadoDAO();
                 int idEstadoCadastrado = estadoObj.cadastrarEstado(idPaisCadastrado, estado);
 
-                Cidade cidadeObj = new Cidade();
-                int idCidadeCadastrada = cidadeObj.cadastrarCidade(idEstadoCadastrado,cidade);
+                var cidadeObj = new CidadeDAO();
+                int idCidadeCadastrada = cidadeObj.cadastrarCidade(idEstadoCadastrado, cidade);
 
-                Bairro bairroObj = new Bairro();
+                var bairroObj = new BairroDAO();
                 int bairroCadastrado = bairroObj.cadastrarBairro(idCidadeCadastrada, bairro);
 
-                Logradouro logradouroObj = new Logradouro();
+                var logradouroObj = new LogradouroDAO();
                 int idLogradouroCadstrado = logradouroObj.cadastrarLogradouro(bairroCadastrado, rua);
 
                 endereco.LOGRADOURO_idLOGRADOURO = idLogradouroCadstrado;
@@ -69,4 +69,3 @@ namespace EstoqueConsole
         }
     }
 }
-

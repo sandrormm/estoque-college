@@ -1,24 +1,15 @@
+﻿using CSA_SISTEMAS.CLASSES;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EstoqueConsole
+namespace CSA_SISTEMAS_DAO.DAO
 {
-    class Cliente
+    public class ClienteDAO
     {
-        public int id { get; set; }
-        public int idTelefone { get; set; }
-        public int idEndereco { get; set; }
-        public string nome { get; set; }
-        public string cpf { get; set; }
-        public DateTime nascimento { get; set; }
-        public string email { get; set; }
-
         public List<Cliente> listarClientes()
         {
-            var db = new estoqueEntities();
+            var db = new ClienteDAO();
 
             List<Cliente> clientes = new List<Cliente>();
 
@@ -38,7 +29,7 @@ namespace EstoqueConsole
 
         public Cliente listarCliente(string nome)
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
 
             var cliente = db.CLIENTE.Where(x => x.NOME_CLIENTE == nome)
             .Select(x => new Cliente
@@ -55,31 +46,15 @@ namespace EstoqueConsole
             return cliente;
         }
 
-        public void cadastrarCliente(
-            int telefoneFixo,
-            int celular, 
-            string nome, 
-            string cpf, 
-            DateTime nascimento, 
-            string email,
-            string logradouro,
-            int cep,
-            int numero,
-            string complemento,
-            string referencia,
-            string pais,
-            string estado,
-            string cidade,
-            string bairro,
-            string rua
-        )
+        public void cadastrarCliente(int telefoneFixo, int celular, string nome, string cpf, DateTime nascimento, string email, string logradouro, int cep, int numero, string complemento,
+            string referencia, string pais, string estado, string cidade, string bairro, string rua)
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
 
-            Telefone telefoneObj = new Telefone();
+            var telefoneObj = new TelefoneDAO();
             int telefone = telefoneObj.cadastrarTelefone(telefoneFixo, celular);
 
-            Endereco enderecoObj = new Endereco();
+            var enderecoObj = new EnderecoDAO();
             int endereco = enderecoObj.cadastrarEndereco(logradouro, cep, numero, complemento,
                 referencia, pais, estado, cidade, bairro, rua);
 
@@ -95,32 +70,14 @@ namespace EstoqueConsole
             db.SaveChanges();
         }
 
-        public void alterarCliente(
-            int idCliente,
-            int telefoneFixo,
-            int celular,
-            string nome,
-            string cpf,
-            DateTime nascimento,
-            string email,
-            string logradouro,
-            int cep,
-            int numero,
-            string complemento,
-            string referencia,
-            string pais,
-            string estado,
-            string cidade,
-            string bairro,
-            string rua
-        )
+        public void alterarCliente(int idCliente, int telefoneFixo, int celular, string nome, string cpf, DateTime nascimento, string email, string logradouro, int cep, int numero, string complemento,
+            string referencia, string pais, string estado, string cidade, string bairro, string rua)
         {
-            var db = new estoqueEntities();
-
-            Telefone telefoneObj = new Telefone();
+            var db = new CSA_GESTOREntities();
+            var telefoneObj = new TelefoneDAO();
             int telefone = telefoneObj.cadastrarTelefone(telefoneFixo, celular);
 
-            Endereco enderecoObj = new Endereco();
+            var enderecoObj = new EnderecoDAO();
             int endereco = enderecoObj.cadastrarEndereco(logradouro, cep, numero, complemento,
                 referencia, pais, estado, cidade, bairro, rua);
 
@@ -138,7 +95,7 @@ namespace EstoqueConsole
 
         public void removerCliente(int id)
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
             var cliente = db.CLIENTE.Where(x => x.idCLIENTE == id).Select(x => x).First();
             db.CLIENTE.Remove(cliente);
 
@@ -146,4 +103,3 @@ namespace EstoqueConsole
         }
     }
 }
-

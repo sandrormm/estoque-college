@@ -1,17 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
+﻿using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EstoqueConsole
+namespace CSA_SISTEMAS_DAO.DAO
 {
-    class Telefone
+    public class TelefoneDAO
     {
         public int cadastrarTelefone(int fixo, int celular)
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
 
             try
             {
@@ -33,12 +29,12 @@ namespace EstoqueConsole
 
         public void removerTelefone(int id)
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
             var telefone = db.TELEFONE.Where(x => x.idTELEFONE == id).Select(x => x).First();
             db.TELEFONE.Remove(telefone);
 
             db.SaveChanges();
         }
+
     }
 }
-

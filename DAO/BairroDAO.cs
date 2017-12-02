@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EstoqueConsole
+﻿namespace CSA_SISTEMAS_DAO.DAO
 {
-    class Bairro
+    public class BairroDAO
     {
         public int cadastrarBairro(int idCidade, string nomeBairro)
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
 
             var bairro = db.BAIRRO.Create();
 
@@ -24,4 +18,3 @@ namespace EstoqueConsole
         }
     }
 }
-

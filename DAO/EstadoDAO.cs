@@ -1,20 +1,16 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstoqueConsole
+namespace CSA_SISTEMAS_DAO.DAO
 {
-    class Estado: Pais
+    public class EstadoDAO
     {
-        public int idPais { get; set; }
-        public string estado { get; set; }
-        public string uf { get; set; }
-
         public int cadastrarEstado(int idPais, string nomeEstado, string uf = "")
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
 
             var estado = db.ESTADO.Create();
 
@@ -29,4 +25,3 @@ namespace EstoqueConsole
         }
     }
 }
-

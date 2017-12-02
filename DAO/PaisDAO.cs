@@ -1,19 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EstoqueConsole
+﻿namespace CSA_SISTEMAS_DAO.DAO
 {
-    class Pais
+    public class PaisDAO
     {
         public string pais { get; set; }
         public string sigla { get; set; }
 
         public int cadastrarPais(string nomePais, string sigla = "")
         {
-            var db = new estoqueEntities();
+            var db = new CSA_GESTOREntities();
 
             var pais = db.PAIS.Create();
             pais.NOME_PAIS = nomePais;
@@ -26,4 +20,3 @@ namespace EstoqueConsole
         }
     }
 }
-
