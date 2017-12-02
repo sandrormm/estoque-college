@@ -9,26 +9,22 @@ namespace EstoqueConsole.CONTROLLERS
     public class Usuarios
     {
         #region Usuario
-
-        //***************************** USUÁRIO ************************************//
         public void CadastrarUsuario(Usuario usuario)
         {
-            var userDao = new UsuarioDAO();
-            userDao.CadastrarUsuario(usuario);
+            var user = new Usuario();
+            user.CadastrarUsuario(usuario);
         }
 
         public void AlterarUsuario(USUARIO usuario)
         {
-            var userDao = new UsuarioDAO();
-            userDao.AlterarUsuario(usuario);
+            var user = new Usuario();
+            user.AlterarUsuario(usuario);
         }
 
         public void DeletarUsuario(USUARIO usuario)
         {
-           
-                var userDao = new UsuarioDAO();
-                userDao.DeletarUsuario(usuario);
-           
+            var user = new Usuario();
+            user.DeletarUsuario(usuario);
         }
         #endregion
     }

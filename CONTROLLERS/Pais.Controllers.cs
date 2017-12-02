@@ -9,11 +9,10 @@ namespace EstoqueConsole.CONTROLLERS
     public class Pais
     {
         #region Pais
-        //***************************** PAÍS ************************************//
-        public void cadastrarPais(string nomePais)
+        public void CadastrarPais(string nomePais)
         {
-            var paisDao = new PaisDAO();
-            paisDao.cadastrarPais(nomePais);
+            var pais = new Pais();
+            pais.cadastrarPais(nomePais);
         }
         #endregion
     }

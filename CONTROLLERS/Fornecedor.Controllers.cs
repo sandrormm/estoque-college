@@ -8,13 +8,12 @@ namespace EstoqueConsole.CONTROLLERS
 {
    public class Fornecedor
     {
-        //***************************** FORNECEDOR ************************************//
         #region Fornecedor
         public void CadastrarFornecedor(int telefoneFixo, int celular, string razaoSocial, string fantasia, int cnpj, int inscricaoEstadual, string email, string logradouro,
             int cep, int numero, string complemento, string referencia, string pais, string estado, string cidade, string bairro, string rua)
         {
-                var fornecedorDAO = new FornecedorDAO();
-                fornecedorDAO.cadastrarFornecedor(telefoneFixo, celular, razaoSocial, fantasia, cnpj, inscricaoEstadual, email, logradouro,
+                var fornecedor = new Fornecedor();
+                fornecedor.cadastrarFornecedor(telefoneFixo, celular, razaoSocial, fantasia, cnpj, inscricaoEstadual, email, logradouro,
                 cep, numero, complemento, referencia, pais, estado, cidade, bairro, rua);
         }
 
@@ -37,21 +36,21 @@ namespace EstoqueConsole.CONTROLLERS
             string bairro,
             string rua)
         {
-                var fornecedorDao = new FornecedorDAO();
-                fornecedorDao.alterarFornecedor(idFornecedor, telefoneFixo, celular, razaoSocial, fantasia, cnpj, inscricaoEstadual, email, logradouro, cep,
+                var fornecedor = new Fornecedor();
+                fornecedor.alterarFornecedor(idFornecedor, telefoneFixo, celular, razaoSocial, fantasia, cnpj, inscricaoEstadual, email, logradouro, cep,
                 numero, complemento, referencia, pais, estado, cidade, bairro, rua);
         }
 
-        public void removerFornecedor(int id)
+        public void RemoverFornecedor(int id)
         {
-                var fornecedorDao = new FornecedorDAO();
-                fornecedorDao.removerFornecedor(id);
+                var fornecedor = new Fornecedor();
+                fornecedor.removerFornecedor(id);
         }
 
         public void Listarfornecedor(string fantasia)
         {
-                var fornecedorDao = new FornecedorDAO();
-                fornecedorDao.listarFornecedor(fantasia);
+                var fornecedor = new Fornecedor();
+                fornecedor.listarFornecedor(fantasia);
         }
         #endregion
     }

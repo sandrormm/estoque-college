@@ -9,24 +9,23 @@ namespace EstoqueConsole.CONTROLLERS
     public class Estoque
     {
        
-        //***************************** ESTOQUE ************************************//
         #region Estoque
         public void CadastrarEstoque(int idProduto, int saldo = 0)
         {
-                var Estoquedao = new EstoqueDAO();
-                Estoquedao.cadastrarEstoque(idProduto, saldo);
+                var estoque = new Estoque();
+                estoque.cadastrarEstoque(idProduto, saldo);
         }
 
-        public void atualizarEstoque(int idProduto, int quantidade, bool operacao)
+        public void AtualizarEstoque(int idProduto, int quantidade, bool operacao)
         {
-                var estoquedao = new EstoqueDAO();
-                estoquedao.atualizarEstoque(idProduto, quantidade, operacao);
+                var estoque = new Estoque();
+                estoque.atualizarEstoque(idProduto, quantidade, operacao);
         }
 
-        public void removerEstoque(int idProduto)
+        public void RemoverEstoque(int idProduto)
         {
-                var estoquedao = new EstoqueDAO();
-                estoquedao.removerEstoque(idProduto);
+                var estoque = new Estoque();
+                estoque.removerEstoque(idProduto);
         }
         #endregion
     }

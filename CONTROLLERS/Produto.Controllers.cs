@@ -9,24 +9,23 @@ namespace EstoqueConsole.CONTROLLERS
     public class Produto
     {
 
-        //***************************** PRODUTO ************************************//
         #region Produto
-        public void cadastrarproduto(string nome, int codbarras, int grupos, string unidade)
+        public void CadastrarProduto(string nome, int codbarras, int grupos, string unidade)
         {
-                var prodDao = new ProdutoDAO();
-                prodDao.cadastrarProduto(nome, codbarras, grupos, unidade);
+                var prod = new Produto();
+                prod.cadastrarProduto(nome, codbarras, grupos, unidade);
         }
 
         public void AlterarProduto(int codigo, string nome, int codBarras, int grupo, string unidade)
         {
-                var proDao = new ProdutoDAO();
-                proDao.alterarProduto(codigo, nome, codBarras, grupo, unidade);
+                var prod = new Produto();
+                prod.alterarProduto(codigo, nome, codBarras, grupo, unidade);
         }
 
         public void ExcluirProduto(int codigo)
         {
-                var proDao = new ProdutoDAO();
-                proDao.removerProduto(codigo);
+                var prod = new Produto();
+                prod.removerProduto(codigo);
         }
         #endregion
     }

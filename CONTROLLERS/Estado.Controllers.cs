@@ -8,13 +8,11 @@ namespace EstoqueConsole.CONTROLLERS
 {
     public class Estado
     {
-
-        //***************************** ESTADO ************************************//
         #region UF
         public void CadastrarEstado(int idPais, string nomeEstado, string uf = "")
         {
-                var ufDao = new EstadoDAO();
-                ufDao.cadastrarEstado(idPais, nomeEstado, uf);
+                var uf = new Estado();
+                uf.cadastrarEstado(idPais, nomeEstado, uf);
         }
         #endregion
     }

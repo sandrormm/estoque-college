@@ -10,7 +10,6 @@ namespace EstoqueConsole.CONTROLLERS
     {
        
         #region Endereco
-        //***************************** ENDEREÇO ************************************//
         public void CadastrarEndereco(string logradouro, int cep, int numero,
             string complemento,
             string referencia,
@@ -20,8 +19,8 @@ namespace EstoqueConsole.CONTROLLERS
             string bairro = "",
             string rua = "")
         {
-            var enderecoDao = new EnderecoDAO();
-            enderecoDao.cadastrarEndereco(logradouro, cep, numero, complemento, referencia, pais, estado, cidade, bairro, rua);
+            var endereco = new Endereco();
+            endereco.cadastrarEndereco(logradouro, cep, numero, complemento, referencia, pais, estado, cidade, bairro, rua);
         }
         #endregion
     }

@@ -9,11 +9,10 @@ namespace EstoqueConsole.CONTROLLERS
     public class Logradouro
     {
         #region Logradouro
-        //***************************** LOGRADOURO ************************************//
-        public void cadastrarLogradouro(int idBairro, string rua)
+        public void CadastrarLogradouro(int idBairro, string rua)
         {
-            var logradouroDao = new LogradouroDAO();
-            logradouroDao.cadastrarLogradouro(idBairro, rua);
+            var logradouro = new Logradouro();
+            logradouro.cadastrarLogradouro(idBairro, rua);
         }
         #endregion
     }

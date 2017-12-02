@@ -9,14 +9,11 @@ namespace EstoqueConsole.CONTROLLERS
     public class Cidade
     {
         
-        //***************************** CIDADE ************************************//
         #region Cidade
         public void CadastrarCidade(int idEstado, string nomeCidade)
         {
-           
-                var cidadeDao = new CidadeDAO();
-                cidadeDao.cadastrarCidade(idEstado, nomeCidade);
-            
+                var cidade = new Cidade();
+                cidade.cadastrarCidade(idEstado, nomeCidade);
         }
         #endregion
     }

@@ -8,13 +8,11 @@ namespace EstoqueConsole.CONTROLLERS
 {
     public class Bairro
     {
-        //***************************** BAIRRO ************************************//
         #region Bairro
-
         public void CadastrarBairro(int idCidade, string nomeBairro)
         {
-                var bairroDao = new BairroDAO();
-                bairroDao.cadastrarBairro(idCidade, nomeBairro);
+                var bairro = new Bairro();
+                bairro.cadastrarBairro(idCidade, nomeBairro);
         }
 
         #endregion

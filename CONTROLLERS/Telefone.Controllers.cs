@@ -8,12 +8,11 @@ namespace EstoqueConsole.CONTROLLERS
 {
     public class Telefone
     {
-        //***************************** TELEFONE ************************************//
         #region Telefone
-        public void cadastrarTelefone(int fixo, int celular)
+        public void CadastrarTelefone(int fixo, int celular)
         {
-            var telefoneDao = new TelefoneDAO();
-            telefoneDao.cadastrarTelefone(fixo, celular);
+            var telefone = new Telefone();
+            telefone.cadastrarTelefone(fixo, celular);
         }
         #endregion
     }
