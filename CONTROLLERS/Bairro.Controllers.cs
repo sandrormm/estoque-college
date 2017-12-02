@@ -1,10 +1,13 @@
-﻿using CSA_SISTEMAS_DAO.DAO;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CSA_SISTEMAS_DAO.CONTROLLERS
+namespace EstoqueConsole.CONTROLLERS
 {
     public class Bairro
     {
-        
         //***************************** BAIRRO ************************************//
         #region Bairro
 

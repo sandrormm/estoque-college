@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSA_SISTEMAS_DAO.CONTROLLERS
+namespace EstoqueConsole.CONTROLLERS
 {
     public class FecharConexao
     {
